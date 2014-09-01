@@ -189,6 +189,19 @@ analogWrite(MY_PIN, 64);
 
 ---
 
+# Other Helpful Functions
+
+* To pause execution for a period of time, use the ``delay()`` function.
+
+  * Takes an integer representing the time to delay by in milliseconds.
+
+```c++
+// Delay for 1 second.
+delay(1000);
+```
+
+---
+
 # Installing Third Party Arduino Libraries
 
 * The Arduino community has developed many open source third party libraries.
