@@ -87,13 +87,6 @@ void loop() {
 * Finally, constants, variables, and helper functions should be declared at the top of the sketch.
 
 ```c++
-/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
- 
-  This example code is in the public domain.
- */
- 
 int led = 13; // or #define led 13
 
 void setup() {                
@@ -227,17 +220,39 @@ Serial.println("foobar");
 * The Arduino IDE comes with a serial monitor to view serial data sent through the USB connection between your workstation and the microcontroller.
 
 ![Arduino IDE Serial Monitor](../res/serialMonitor.png "Serial Monitor")
+
 ---
 
-# Other Helpful Functions
+# Hardware Timers and Interrupts
 
-* To pause execution for a period of time, use the ``delay()`` function.
+* The microcontroller on the Teensy++2.0 has hardware timers which can be accessed through third party libraries.
 
-  * Takes an integer representing the time to delay by in milliseconds.
+* The [TimerOne](http://pjrc.com/teensy/td_libs_TimerOne.html) library is used to access the 16 bit timers.
+
+* The timer is set with a given period and at the end of every period, an interrupt function can be executed.
+
+* The timer can also switch PWM pins based on the provided period.
+
+* See the [API documentation](http://pjrc.com/teensy/td_libs_TimerOne.html) for more information.
+
+---
+
+# Hardware Timers and Interrupts
+
+* To initialize the TimerOne library, use ``Timer1.initialize()``.
+
+  * You must provide a period to this function in microseconds.
+
+* To attach an interrupt handler, use ``Timer1.attachInterrupt()``.
+
+  * You must provide a callback function to this funciton.
 
 ```c++
-// Delay for 1 second.
-delay(1000);
+// Initialize the period to 1 second.
+Timer1.initialize(1000000);
+
+// Attach an interrupt handler.
+Timer1.attachInterrupt(callbackFunction);
 ```
 
 ---
@@ -253,6 +268,25 @@ delay(1000);
 * The library should then be available. You can confirm that the library was installed by looking at the list of installed libraries under "Sketch > Import Library..."
 
 * More information on installing libraries is available at the [Arduino website](http://arduino.cc/en/Guide/Libraries).
+
+* Use include statements to include a library in your sketch.
+
+```c++
+#include<TimerOne.h>
+```
+
+---
+
+# Other Helpful Functions
+
+* To pause execution for a period of time, use the ``delay()`` function.
+
+  * Takes an integer representing the time to delay by in milliseconds.
+
+```c++
+// Delay for 1 second.
+delay(1000);
+```
 
 ---
 
