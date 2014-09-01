@@ -49,7 +49,7 @@ class: center, middle
 
 * Arduino programs (called sketches) are written in C or C++.
 
-* The Arduino platform is set of high level C++ libraries used to abstract the details of programming microprocessors.
+* The Arduino platform is set of high level C++ libraries used to abstract the details of programming microcontrollers.
 
 * Additionally, a small framework is provided to manage the control flow of the sketch execution.
 
@@ -84,7 +84,7 @@ void loop() {
 
 # Anatomy of an Arduino Sketch
 
-* Finally, constants and variables should be declared at the top of the sketch.
+* Finally, constants, variables, and helper functions should be declared at the top of the sketch.
 
 ```c++
 /*
@@ -105,5 +105,47 @@ void loop() {
   delay(1000);
   digitalWrite(led, LOW);
   delay(1000);
+}
+```
+
+---
+
+# Digital Output
+
+* To output a digital signal on a pin, that pin's mode must be set to ``OUTPUT`` using the ``pinMode()`` function.
+
+* To set a pin to ``HIGH`` or ``LOW``, use the ``digitalWrite()`` function.
+
+```c++
+int MY_PIN = 13;
+
+// Set pin 13 to output mode and output a HIGH signal through that pin.
+pinMode(MY_PIN, OUTPUT);
+
+digitalWrite(MY_PIN, HIGH);
+```
+
+---
+
+# Digital Input
+
+* To read a digital signal on a pin, that pin's mode must be set to either ``INPUT`` or ``INPUT_PULLUP``.
+
+  * When set to ``INPUT``, if no source is connected to the pin, the state will be uncertain and could be read as either ``HIGH`` or ``LOW``.
+
+  * When set to ``INPUT_PULLUP``, if no source is connected to the pin, the state is "pulled-up" to a ``HIGH`` state due to an internal pull up resistor in the microcontroller.
+
+* The state of a pin is read using the ``digitalRead()`` function.
+
+```c++
+int MY_PIN = 13;
+
+pinMode(MY_PIN, INPUT);
+
+// If MY_PIN is HIGH, DO X, otherwise DO Y.
+if (digitalRead(MY_PIN)) {
+  doX();
+} else {
+  doY();
 }
 ```
