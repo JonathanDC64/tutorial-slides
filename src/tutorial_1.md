@@ -149,3 +149,15 @@ if (digitalRead(MY_PIN)) {
   doY();
 }
 ```
+
+---
+
+# References
+
+* [Arduino Reference](http://arduino.cc/en/Reference/HomePage)
+
+* [INPUT vs INPUT_PULLUP](http://electronics.stackexchange.com/questions/67007/whats-the-difference-between-input-and-input-pullup)
+
+* [Pull-Up Resistors](https://learn.sparkfun.com/tutorials/pull-up-resistors)
+
+* [PWM](https://www.youtube.com/watch?v=Y1QraI5i_XM)
