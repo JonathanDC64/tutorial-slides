@@ -204,6 +204,31 @@ int value = analogRead(MY_PIN);
 
 ---
 
+# Serial Output
+
+* The Arduino platform provides convenience functions for serial IO.
+
+* To initialize the Serial library, use ``Serial.begin()``.
+
+  * You must provide a baud rate to this function. Usually we use 9600.
+
+```c++
+// Initialize the serial library to 9600 baud rate.
+Serial.begin(9600);
+
+// Output a string.
+Serial.println("foobar");
+```
+
+---
+
+# Arduino IDE Serial Monitor
+
+* The Arduino IDE comes with a serial monitor to view serial data sent through the USB connection between your workstation and the microcontroller.
+
+![Arduino IDE Serial Monitor](../res/serialMonitor.png "Serial Monitor")
+---
+
 # Other Helpful Functions
 
 * To pause execution for a period of time, use the ``delay()`` function.
