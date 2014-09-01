@@ -189,6 +189,20 @@ analogWrite(MY_PIN, 64);
 
 ---
 
+# Installing Third Party Arduino Libraries
+
+* The Arduino community has developed many open source third party libraries.
+
+  * Often, these libraries are distributed as a zip file of C++ code.
+
+* To install a zipped library, from the Arduino IDE select "Sketch > Import Library... > Add Library..." and select the zip file.
+
+* The library should then be available. You can confirm that the library was installed by looking at the list of installed libraries under "Sketch > Import Library..."
+
+* More information on installing libraries is available at the [Arduino website](http://arduino.cc/en/Guide/Libraries).
+
+---
+
 # References
 
 * [Arduino Reference](http://arduino.cc/en/Reference/HomePage)
