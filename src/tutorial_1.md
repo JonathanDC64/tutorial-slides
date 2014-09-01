@@ -140,14 +140,10 @@ digitalWrite(MY_PIN, HIGH);
 ```c++
 int MY_PIN = 13;
 
+// Set pin 13 to input mode and store its value in a variable.
 pinMode(MY_PIN, INPUT);
 
-// If MY_PIN is HIGH, DO X, otherwise DO Y.
-if (digitalRead(MY_PIN)) {
-  doX();
-} else {
-  doY();
-}
+int value = digitalRead(MY_PIN)
 ```
 
 ---
@@ -186,6 +182,25 @@ pinMode(MY_PIN, OUTPUT);
 
 analogWrite(MY_PIN, 64);
 ```
+
+---
+
+# Analog Input
+
+* To read an analog signal on a pin, that pin's mode must be set to either ``INPUT``.
+
+* The voltage at a pin is read using the ``analogRead()`` function.
+
+* NOTE: Not all pins suport analog input, you must verify on your pinout charts to find those which do.
+
+```c++
+int MY_PIN = A0;
+
+// Set pin A0 to input mode and store its value in a variable.
+pinMode(MY_PIN, INPUT);
+
+int value = analogRead(MY_PIN);
+``` 
 
 ---
 
