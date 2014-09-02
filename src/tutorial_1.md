@@ -215,9 +215,19 @@ Serial.println("foobar");
 
 ---
 
+# Serial Input
+
+* The Arduino platform provides many convenience functions to read serial input.
+
+* Input is ASCII encoded. Convenience functions are available for parsing asci representations of numeric characters to C integer types.
+
+* View Serial documentation [here](http://arduino.cc/en/Reference/Serial).
+
+---
+
 # Arduino IDE Serial Monitor
 
-* The Arduino IDE comes with a serial monitor to view serial data sent through the USB connection between your workstation and the microcontroller.
+* The Arduino IDE comes with a serial monitor to view and send serial data sent through the USB connection between your workstation and the microcontroller.
 
 ![Arduino IDE Serial Monitor](../res/serialMonitor.png "Serial Monitor")
 
@@ -288,6 +298,8 @@ Timer1.attachInterrupt(callbackFunction);
 delay(1000);
 ```
 
+* When dealing with asynchronous code (interrupts), protect critical sections with ``noInterrupts()`` to disable interrupts and ``interrupts()`` to re-enable them.
+
 ---
 
 # References
@@ -301,6 +313,10 @@ delay(1000);
 * [PWM](http://arduino.cc/en/Tutorial/PWM)
 
 * [PWM Video](https://www.youtube.com/watch?v=Y1QraI5i_XM)
+
+* [Arduino Serial Module](http://arduino.cc/en/Reference/Serial)
+
+* [Teensy Timer Libraries](https://www.pjrc.com/teensy/td_libs_TimerOne.html)
 
 ---
 
