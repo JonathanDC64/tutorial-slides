@@ -180,7 +180,7 @@ analogWrite(MY_PIN, 64);
 
 # Analog Input
 
-* To read an analog signal on a pin, that pin's mode must be set to either ``INPUT``.
+* To read an analog signal on a pin, that pin's mode must be set to ``INPUT``.
 
 * The voltage at a pin is read using the ``analogRead()`` function.
 
@@ -219,7 +219,7 @@ Serial.println("foobar");
 
 * The Arduino platform provides many convenience functions to read serial input.
 
-* Input is ASCII encoded. Convenience functions are available for parsing asci representations of numeric characters to C integer types.
+* Input is ASCII encoded. Convenience functions are available for parsing ascii representations of numeric characters to C integer types.
 
 * View Serial documentation [here](http://arduino.cc/en/Reference/Serial).
 
@@ -239,7 +239,7 @@ Serial.println("foobar");
 
 * The [TimerOne](http://pjrc.com/teensy/td_libs_TimerOne.html) library is used to access the 16 bit timers.
 
-* The timer is set with a given period and at the end of every period, an interrupt function can be executed.
+* The timer is set with a given period and at the end of every period, an interrupt function is executed.
 
 * The timer can also switch PWM pins based on the provided period.
 
@@ -282,7 +282,7 @@ Timer1.attachInterrupt(callbackFunction);
 * Use include statements to include a library in your sketch.
 
 ```c++
-#include<TimerOne.h>
+#include <TimerOne.h>
 ```
 
 ---
