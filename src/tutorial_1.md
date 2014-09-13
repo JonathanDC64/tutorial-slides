@@ -267,6 +267,17 @@ Timer1.attachInterrupt(callbackFunction);
 
 ---
 
+# Notes about the Teensy Timer Libraries
+
+* The choice of whether to use TimerOne or TimerThree depends on which PWM pins you are using.
+
+* On the Teensy++ 2.0
+  * **TimerOne**: Pins 25, 26, 27
+
+  * **TimerThree**: Pins 14, 15, 16
+
+---
+
 # Installing Third Party Arduino Libraries
 
 * The Arduino community has developed many open source third party libraries.
