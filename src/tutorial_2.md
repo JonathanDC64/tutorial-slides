@@ -29,7 +29,7 @@ class: center, middle
   sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc make -y
   ```
 
-* AVR-C programs can be loaded using the Teensy Loader through the Arduino IDE, however a [command line tool](https://www.pjrc.com/teensy/loader_cli.html) exists to load programs without using the commandline if desired.
+* AVR-C programs can be loaded using the Teensy Loader through the Arduino IDE, however a [command line tool](https://www.pjrc.com/teensy/loader_cli.html) exists to load programs without using the Arduino IDE if desired.
   
 ---
 
@@ -79,9 +79,9 @@ avr-objcopy -O ihex {output.o} {output.hex}
 
   * Data Registers are accessed differently when reading and writing:
 
-    * Data Registers are written to using **PORTx** where x is the letter of the port. (ex. PORTD for writing to Port D's Data Register).
+      * Data Registers are written to using **PORTx** where x is the letter of the port. (ex. PORTD for writing to Port D's Data Register).
 
-    * Data Registers are read from using **PINx** where x is the letter of the port. (ex. PIND for reading from Port D's Data Register).
+      * Data Registers are read from using **PINx** where x is the letter of the port. (ex. PIND for reading from Port D's Data Register).
 
 ---
 
@@ -304,7 +304,7 @@ ISR(INTERRUPT_TYPE_vect) {
 
 # Analog Input
 
-* To read an analog signal on a pin, the microcontrollers analog/digital converted (ADC) must be used. The relevant documentation is in section 26 of the datasheet.
+* To read an analog signal on a pin, the microcontroller's analog/digital converted (ADC) must be used. The relevant documentation is in section 26 of the datasheet.
 
 * Before an analog signal can be read, the ADC registers must be configured.
 
@@ -355,13 +355,16 @@ if (ADCSRA & (1 << ADIF)) {
 
 * The API is documented at the [Teensy++ 2.0 Website](http://www.pjrc.com/teensy/usb_serial.html).
 
-* Two key functions:
+* Three key functions:
   * ``usb_init()``: Initialize the usb serial library.
   * ``serial_write()``: Write serial data through the usb connection.
+  * ``usb_serial_getchar()``: Reads one byte from the input buffer.
 
 ---
 
 # References
+
+* [AT90USB1286 Datasheet](http://www.atmel.com/Images/doc7593.pdf)
 
 ---
 
