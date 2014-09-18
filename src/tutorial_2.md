@@ -357,7 +357,7 @@ if (ADCSRA & (1 << ADIF)) {
 
 * Three key functions:
   * ``usb_init()``: Initialize the usb serial library.
-  * ``serial_write()``: Write serial data through the usb connection.
+  * ``usb_serial_write()``: Write serial data through the usb connection.
   * ``usb_serial_getchar()``: Reads one byte from the input buffer.
 
 ---
