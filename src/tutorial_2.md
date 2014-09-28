@@ -275,7 +275,7 @@ OCR0A = 128;
   * To enable global interrupts use ``sei()`` and to disable global interrupts use ``cli()``.
 
 ```c++
-// Enable Timer/Counter register overflow interrupts on Timer 1
+// Enable Timer/Counter register overflow interrupts on Timer 0
 TIMSK0 |= (1 << TOIE0);
 
 // Enable Interrupts (Global Interrupt Mask)
@@ -341,6 +341,9 @@ if (ADCSRA & (1 << ADIF)) {
 } else {
   // The value is not ready yet, keep waiting.
 }
+
+// Reset interrupt flag.
+ADCSRA |= (1 << ADIF);
 ```
 
 ---
