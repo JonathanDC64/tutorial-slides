@@ -11,6 +11,8 @@ class: center, middle
 
 2. Installing Ubuntu on the Beaglebone Black
 
+3. Digital Output on GPIO
+
 ---
 
 # Installing Beaglebone Black USB Drivers
@@ -97,6 +99,70 @@ xz -cd {your_disk_image}.img.xz > /dev/sd{X}
 
 ```bash
 ssh ubuntu@192.168.7.2
+```
+
+---
+
+# Digital Output
+
+* The GPIO pins on the Beaglebone Black are managed by the Linux OS through the device tree, an abstraction of the device's hardware represented in the filesystem.
+
+* These pins can be manipulated by simply writing to files on the file system
+
+---
+
+# Digital Output
+
+* First, we need to tell the operating system which pin we are using. See this [diagram](http://electronics.stackexchange.com/questions/69154/how-to-wire-a-normally-open-button-to-a-beaglebone-black) for pin number and locations.
+
+```c++
+#include <stdio.h>
+
+// Open the export file
+FILE *exportFile;
+exportFile = fopen("/sys/class/gpio/export", "w");
+
+// Write the pin that we want to use to the file:
+fprintf(exportFile, "67");
+
+// Close the file
+fclose(exportFile);
+```
+
+---
+
+# Digital Output
+
+* Now, we want to set the data direction on this pin.
+
+```c++
+// Open the Pin 67 Data Direction File
+FILE *dataDirection67;
+dataDirection67 = fopen("/sys/class/gpio/gpio67/direction", "w");
+
+// Write the direction as output to the file:
+fprintf(dataDirection67, "out");
+
+// Close the file.
+fclose(dataDirection67);
+```
+
+---
+
+# Digital Output
+
+* Finally, we can write the value to the pin.
+
+```c++
+// Open the Pin 67 value file
+FILE *value67;
+value67 = fopen("/sys/class/gpio/gpio67/value", "w");
+
+// Write the direction as HIGH (1), for LOW, use 0.
+fprintf(value67, "1");
+
+// Close the file.
+fclose(value67);
 ```
 
 ---
