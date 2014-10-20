@@ -11,7 +11,7 @@ class: center, middle
 
 * I2C operates on a two wire bus and allows communication between many devices (up to 128 devices on two wires) without occupying many MCU pins.
 
-![I2C Bus](../res/i2c.png "PWM")
+![I2C Bus](../res/i2c.png "I2C Bus")
 
 ---
 
